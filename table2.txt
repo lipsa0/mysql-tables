@@ -1,0 +1,69 @@
+Microsoft Windows [Version 6.1.7600]
+Copyright (c) 2009 Microsoft Corporation.  All rights reserved.
+
+C:\Users\Asish>cd../..
+
+C:\>F:
+
+F:\>cd xampp/mysql/bin
+
+F:\xampp\mysql\bin>mysql -u root -p -h localhost
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 4
+Server version: 10.1.19-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2016, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use table1;
+Database changed
+MariaDB [table1]> SELECT DATABASE()
+    ->
+    -> L
+    -> ;
++--------+
+| L      |
++--------+
+| table1 |
++--------+
+1 row in set (0.00 sec)
+
+MariaDB [table1]> CREATE TABLE college
+    -> (
+    -> name varchar(12),
+    -> fees int(10)
+    -> );
+Query OK, 0 rows affected (0.17 sec)
+
+MariaDB [table1]> INSERT INTO college(name,fees) VALUES(rec,12000);
+ERROR 1054 (42S22): Unknown column 'rec' in 'field list'
+MariaDB [table1]> INSERT INTO college(name,fees) VALUES('REC',121000);
+Query OK, 1 row affected (0.03 sec)
+
+MariaDB [table1]> INSERET INTO college(name,fees) VALUES('iter',435000);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MariaDB server version for the right syntax to use near 'INS
+ERET INTO college(name,fees) VALUES('iter',435000)' at line 1
+MariaDB [table1]> INSERT INTO college(name,fees) VALUES('ITER',439000);
+Query OK, 1 row affected (0.05 sec)
+
+MariaDB [table1]> INSERT INTO college(name,fees) VALUES('CIMET',324000);
+Query OK, 1 row affected (0.02 sec)
+
+MariaDB [table1]> SELECT* form college;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MariaDB server version for the right syntax to use near 'for
+m college' at line 1
+MariaDB [table1]> SELECT * from college;
++-------+--------+
+| name  | fees   |
++-------+--------+
+| REC   | 121000 |
+| ITER  | 439000 |
+| CIMET | 324000 |
++-------+--------+
+3 rows in set (0.00 sec)
+
+MariaDB [table1]>
